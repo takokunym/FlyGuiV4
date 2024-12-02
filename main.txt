@@ -2,129 +2,130 @@ local main = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local up = Instance.new("TextButton")
 local down = Instance.new("TextButton")
-local onof = Instance.new("TextButton")
-local TextLabel = Instance.new("TextLabel")
 local plus = Instance.new("TextButton")
-local speed = Instance.new("TextLabel")
 local mine = Instance.new("TextButton")
-local closebutton = Instance.new("TextButton")
-local mini = Instance.new("TextButton")
-local mini2 = Instance.new("TextButton")
+local speed = Instance.new("TextLabel")
+local onof = Instance.new("TextButton")
+local title = Instance.new("TextLabel")
+local close = Instance.new("TextButton")
 
-main.Name = "main"
+-- GUIの設定
+main.Name = "FlyGUIV4"
 main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 main.ResetOnSpawn = false
 
 Frame.Parent = main
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
-Frame.Size = UDim2.new(0, 190, 0, 57)
+Frame.Size = UDim2.new(0, 200, 0, 150)
+Frame.Position = UDim2.new(0.5, -100, 0.5, -75)
+Frame.BorderSizePixel = 2
 
-up.Name = "up"
+-- ドラッグ機能
+Frame.Active = true
+Frame.Draggable = true
+
+-- タイトル
+title.Name = "Title"
+title.Parent = Frame
+title.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+title.Size = UDim2.new(1, 0, 0.2, 0)
+title.Position = UDim2.new(0, 0, 0, 0)
+title.Text = "Fly GUI v4"
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 18
+title.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+-- ボタン（UP）
+up.Name = "Up"
 up.Parent = Frame
-up.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-up.Size = UDim2.new(0, 44, 0, 28)
-up.Font = Enum.Font.SourceSans
+up.Size = UDim2.new(0.45, -5, 0.2, 0)
+up.Position = UDim2.new(0.05, 0, 0.3, 0)
 up.Text = "UP"
-up.TextColor3 = Color3.fromRGB(0, 0, 0)
-up.TextSize = 14.000
+up.BackgroundColor3 = Color3.fromRGB(170, 220, 255)
+up.Font = Enum.Font.SourceSans
+up.TextSize = 16
+up.BorderSizePixel = 2
 
-down.Name = "down"
+-- ボタン（DOWN）
+down.Name = "Down"
 down.Parent = Frame
-down.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-down.Position = UDim2.new(0, 0, 0.491228074, 0)
-down.Size = UDim2.new(0, 44, 0, 28)
-down.Font = Enum.Font.SourceSans
+down.Size = UDim2.new(0.45, -5, 0.2, 0)
+down.Position = UDim2.new(0.05, 0, 0.55, 0)
 down.Text = "DOWN"
-down.TextColor3 = Color3.fromRGB(0, 0, 0)
-down.TextSize = 14.000
+down.BackgroundColor3 = Color3.fromRGB(170, 220, 255)
+down.Font = Enum.Font.SourceSans
+down.TextSize = 16
+down.BorderSizePixel = 2
 
-onof.Name = "onof"
-onof.Parent = Frame
-onof.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
-onof.Size = UDim2.new(0, 56, 0, 28)
-onof.Font = Enum.Font.SourceSans
-onof.Text = "fly"
-onof.TextColor3 = Color3.fromRGB(0, 0, 0)
-onof.TextSize = 14.000
-
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 100, 0, 28)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "FLY GUI V4"
-TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
-TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
-TextLabel.TextWrapped = true
-
-plus.Name = "plus"
+-- ボタン（+）
+plus.Name = "Plus"
 plus.Parent = Frame
-plus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-plus.Position = UDim2.new(0.231578946, 0, 0, 0)
-plus.Size = UDim2.new(0, 45, 0, 28)
-plus.Font = Enum.Font.SourceSans
+plus.Size = UDim2.new(0.2, 0, 0.2, 0)
+plus.Position = UDim2.new(0.55, 5, 0.3, 0)
 plus.Text = "+"
-plus.TextColor3 = Color3.fromRGB(0, 0, 0)
-plus.TextScaled = true
-plus.TextSize = 14.000
-plus.TextWrapped = true
+plus.BackgroundColor3 = Color3.fromRGB(170, 255, 170)
+plus.Font = Enum.Font.SourceSans
+plus.TextSize = 18
+plus.BorderSizePixel = 2
 
-speed.Name = "speed"
-speed.Parent = Frame
-speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
-speed.Size = UDim2.new(0, 44, 0, 28)
-speed.Font = Enum.Font.SourceSans
-speed.Text = "1"
-speed.TextColor3 = Color3.fromRGB(0, 0, 0)
-speed.TextScaled = true
-speed.TextSize = 14.000
-speed.TextWrapped = true
-
-mine.Name = "mine"
+-- ボタン（-）
+mine.Name = "Minus"
 mine.Parent = Frame
-mine.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
-mine.Size = UDim2.new(0, 45, 0, 29)
-mine.Font = Enum.Font.SourceSans
+mine.Size = UDim2.new(0.2, 0, 0.2, 0)
+mine.Position = UDim2.new(0.55, 5, 0.55, 0)
 mine.Text = "-"
-mine.TextColor3 = Color3.fromRGB(0, 0, 0)
-mine.TextScaled = true
-mine.TextSize = 14.000
-mine.TextWrapped = true
+mine.BackgroundColor3 = Color3.fromRGB(255, 170, 170)
+mine.Font = Enum.Font.SourceSans
+mine.TextSize = 18
+mine.BorderSizePixel = 2
 
-closebutton.Name = "Close"
-closebutton.Parent = main.Frame
-closebutton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-closebutton.Font = "SourceSans"
-closebutton.Size = UDim2.new(0, 45, 0, 28)
-closebutton.Text = "X"
-closebutton.TextSize = 30
-closebutton.Position =  UDim2.new(0, 0, -1, 27)
+-- スピードラベル
+speed.Name = "Speed"
+speed.Parent = Frame
+speed.Size = UDim2.new(0.2, 0, 0.2, 0)
+speed.Position = UDim2.new(0.8, 0, 0.3, 0)
+speed.Text = "1"
+speed.Font = Enum.Font.SourceSans
+speed.TextSize = 18
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+speed.BorderSizePixel = 2
 
-mini.Name = "minimize"
-mini.Parent = main.Frame
-mini.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-mini.Font = "SourceSans"
-mini.Size = UDim2.new(0, 45, 0, 28)
-mini.Text = "-"
-mini.TextSize = 40
-mini.Position = UDim2.new(0, 44, -1, 27)
+-- ON/OFFボタン
+onof.Name = "OnOff"
+onof.Parent = Frame
+onof.Size = UDim2.new(0.4, -5, 0.2, 0)
+onof.Position = UDim2.new(0.55, 5, 0.75, 0)
+onof.Text = "Fly: OFF"
+onof.BackgroundColor3 = Color3.fromRGB(255, 255, 170)
+onof.Font = Enum.Font.SourceSans
+onof.TextSize = 16
+onof.BorderSizePixel = 2
 
-mini2.Name = "minimize2"
-mini2.Parent = main.Frame
-mini2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-mini2.Font = "SourceSans"
-mini2.Size = UDim2.new(0, 45, 0, 28)
-mini2.Text = "+"
-mini2.TextSize = 40
-mini2.Position = UDim2.new(0, 44, -1, 57)
-mini2.Visible = false
+-- 閉じるボタン
+close.Name = "Close"
+close.Parent = Frame
+close.Size = UDim2.new(0.2, 0, 0.2, 0)
+close.Position = UDim2.new(1, -40, 0, 0)  -- ここを変更して右寄せにしました
+close.Text = "X"
+close.BackgroundColor3 = Color3.fromRGB(255, 170, 170)
+close.Font = Enum.Font.SourceSans
+close.TextSize = 18
+close.BorderSizePixel = 2
+
+close.MouseButton1Click:Connect(function()
+	if not nowe then  -- 空を飛んでいない状態でのみGUIを閉じる
+		game:GetService("StarterGui"):SetCore("SendNotification", { 
+			Title = "Fly GUI v4";
+			Text = "Thank you for using.";
+			Icon = ""})
+        main:Destroy()
+	else
+		game:GetService("StarterGui"):SetCore("SendNotification", { 
+			Title = "Fly GUI v4";
+			Text = "The GUI cannot be closed while Fly is on.";
+			Icon = ""})
+    end
+end)
 
 speeds = 1
 
@@ -136,7 +137,7 @@ local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 nowe = false
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
-	Title = "FLY GUI V4";
+	Title = "Fly GUI v4";
 	Text = "Created by MyNuko";
 	Icon = ""})
 Duration = 5;
@@ -147,6 +148,9 @@ Frame.Draggable = true
 onof.MouseButton1Down:connect(function()
 
 	if nowe == true then
+
+		onof.Text = "Fly: off"
+
 		nowe = false
 
 		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
@@ -166,6 +170,9 @@ onof.MouseButton1Down:connect(function()
 		speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
 		speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
 	else 
+
+		onof.Text = "Fly: on"
+
 		nowe = true
 
 
@@ -414,7 +421,11 @@ plus.MouseButton1Down:connect(function()
 end)
 mine.MouseButton1Down:connect(function()
 	if speeds == 1 then
-		speed.Text = 'cannot be less than 1'
+		speed.Text = '1'
+		game:GetService("StarterGui"):SetCore("SendNotification", { 
+			Title = "Fly GUI v4";
+			Text = "Can not be less than 1";
+			Icon = ""})
 		wait(1)
 		speed.Text = speeds
 	else
@@ -441,34 +452,4 @@ mine.MouseButton1Down:connect(function()
 			end
 		end
 	end
-end)
-
-closebutton.MouseButton1Click:Connect(function()
-	main:Destroy()
-end)
-
-mini.MouseButton1Click:Connect(function()
-	up.Visible = false
-	down.Visible = false
-	onof.Visible = false
-	plus.Visible = false
-	speed.Visible = false
-	mine.Visible = false
-	mini.Visible = false
-	mini2.Visible = true
-	main.Frame.BackgroundTransparency = 1
-	closebutton.Position =  UDim2.new(0, 0, -1, 57)
-end)
-
-mini2.MouseButton1Click:Connect(function()
-	up.Visible = true
-	down.Visible = true
-	onof.Visible = true
-	plus.Visible = true
-	speed.Visible = true
-	mine.Visible = true
-	mini.Visible = true
-	mini2.Visible = false
-	main.Frame.BackgroundTransparency = 0 
-	closebutton.Position =  UDim2.new(0, 0, -1, 27)
 end)
