@@ -8,11 +8,15 @@ local speed = Instance.new("TextLabel")
 local onof = Instance.new("TextButton")
 local title = Instance.new("TextLabel")
 local close = Instance.new("TextButton")
+local small = Instance.new("TextButton")
 
 -- GUIの設定
 main.Name = "FlyGUIV4"
 main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 main.ResetOnSpawn = false
+
+
+
 
 Frame.Parent = main
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -127,6 +131,36 @@ close.MouseButton1Click:Connect(function()
     end
 end)
 
+-- 最小化ボタン
+small.Name = "FullBright"
+small.Parent = Frame
+small.Size = UDim2.new(0.2, 0, 0.2, 0)
+small.Position = UDim2.new(1, -200, 0, 0)  -- ここを変更して右寄せにしました
+small.Text = "-"
+small.BackgroundColor3 = Color3.fromRGB(255, 255, 170)
+small.Font = Enum.Font.SourceSans
+small.TextSize = 18
+small.BorderSizePixel = 2
+
+
+local isSmalled = false
+-- smallボタンがクリックされたときの処理
+small.MouseButton1Click:Connect(function()
+	if isSmalled == false then
+		Frame.Visible = false
+		isSmalled = true
+
+		game:GetService("StarterGui"):SetCore("SendNotification", { 
+			Title = "Fly GUI v4";
+			Text = "Press right shift to show GUI.";
+			Icon = ""})
+
+	end
+
+    
+end)
+
+
 speeds = 1
 
 local speaker = game:GetService("Players").LocalPlayer
@@ -135,6 +169,20 @@ local chr = game.Players.LocalPlayer.Character
 local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
 
 nowe = false
+
+local UserInputService = game:GetService("UserInputService")
+
+-- Function to detect when a key is pressed
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    -- Check if the input is the right Shift key
+    if input.KeyCode == Enum.KeyCode.RightShift then
+        -- Execute the desired action
+        if isSmalled == true then
+			Frame.Visible = true
+			isSmalled = false
+		end
+    end
+end)
 
 game:GetService("StarterGui"):SetCore("SendNotification", { 
 	Title = "Fly GUI v4";
