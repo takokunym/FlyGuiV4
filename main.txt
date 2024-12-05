@@ -9,6 +9,7 @@ local onof = Instance.new("TextButton")
 local title = Instance.new("TextLabel")
 local close = Instance.new("TextButton")
 local small = Instance.new("TextButton")
+local stopgame = Instance.new("TextButton")
 
 -- GUIの設定
 main.Name = "FlyGUIV4"
@@ -158,6 +159,20 @@ small.MouseButton1Click:Connect(function()
 	end
 
     
+end)
+
+stopgame.Name = "Endgame"
+stopgame.Parent = Frame
+stopgame.Size = UDim2.new(0.45, -5, 0.2, -1)
+stopgame.Position = UDim2.new(0.05, 0, 0.75, 2)
+stopgame.Text = "EndGame"
+stopgame.BackgroundColor3 = Color3.fromRGB(0,226,180)
+stopgame.Font = Enum.Font.SourceSans
+stopgame.TextSize = 16
+stopgame.BorderSizePixel = 2
+
+stopgame.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer:Kick("End game")
 end)
 
 
