@@ -11,6 +11,8 @@ local close = Instance.new("TextButton")
 local small = Instance.new("TextButton")
 local stopgame = Instance.new("TextButton")
 
+local isWaiting = false
+
 -- GUIの設定
 main.Name = "FlyGUIV4"
 main.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -147,6 +149,9 @@ small.BorderSizePixel = 2
 local isSmalled = false
 -- smallボタンがクリックされたときの処理
 small.MouseButton1Click:Connect(function()
+
+	isWaiting = false
+
 	if isSmalled == false then
 		Frame.Visible = false
 		isSmalled = true
@@ -171,8 +176,16 @@ stopgame.Font = Enum.Font.SourceSans
 stopgame.TextSize = 16
 stopgame.BorderSizePixel = 2
 
+
+
 stopgame.MouseButton1Click:Connect(function()
-	game.Players.LocalPlayer:Kick("End game")
+	isWaiting = true
+	game:GetService("StarterGui"):SetCore("SendNotification", { 
+		Title = "Fly GUI v4";
+		Text = "Really?Press right shift to exit the game";
+		Icon = ""})
+	wait(5) -- Robloxでの5秒間の待機
+	isWaiting = false
 end)
 
 
@@ -195,6 +208,8 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
         if isSmalled == true then
 			Frame.Visible = true
 			isSmalled = false
+		elseif isWaiting == true then
+			game.Players.LocalPlayer:Kick("GameEnd")		
 		end
     end
 end)
